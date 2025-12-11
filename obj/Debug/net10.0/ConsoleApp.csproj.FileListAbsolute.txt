@@ -16,3 +16,4 @@ C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Debug\net10.0\DPCtlUruNet.dll
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Debug\net10.0\DPUruNet.dll
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Debug\net10.0\ConsoleApp.csproj.AssemblyReference.cache
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Debug\net10.0\ConsoleApp.csproj.Up2Date
+C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Debug\net10.0\ConsoleApp.sourcelink.json

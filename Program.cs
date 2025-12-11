@@ -15,20 +15,80 @@
             //NOTA: Pasar el array a una lista para mayor flexibilidad
             //NOTA: Agregar el indice de resultado de las huellas comparadas
             //NOTA: Devolver por consola el resultado de la comparacion
-            Fmd huella = CrearHuella();
-            Fmd huella2 = CapturarHuella();
+            //Terminar programa si pasan mas de 10 segundos sin capturar huella
 
-            if (huella == null || huella2 == null)
+            Fmd huella = null;
+            Fmd huella2 = null;
+
+            if (args.Length > 0 && args[0] == "0")
             {
-                Console.WriteLine("No se pudo crear alguna de las huellas.");
+                Console.Write("Apagando lector...");
+                ApagarLector();
+                return;
+            }else if(args.Length > 0 && args[0] == "1")
+            {
+                Console.Write("Creando Huella...");
+
+                CrearHuella();
+            }else if(args.Length > 1 && args[0] == "2")
+            {
+                Console.Write("Capturando Huella...");
+
+                //Capturar Huella sencilla
+                CapturarHuella();
+            }
+            else if (args.Length > 2 && args[0] == "3")
+            {
+                Console.Write("Comparando Huella...");
+
+                //Comparar dos huellas
+                huella = JsonSerializer.Deserialize<Fmd>(args[1]);
+                huella2 = JsonSerializer.Deserialize<Fmd>(args[2]);
+
+                if (huella == null || huella2 == null)
+                {
+                    Console.Write("Error. No se pudo crear alguna de las huellas.");
+                    return;
+                }
+
+                CompareResult resultado = Comparison.Compare(huella, 0, huella2, 0);
+
+                Console.Write("Correcto. Resultado: " + resultado.Score);
+
+            }
+
+            
+
+            //Console.ReadKey();
+        }
+
+        //Apagar lector
+
+        static void ApagarLector()
+        {
+            ReaderCollection lectores;
+            Reader lector;
+
+            //Lectores de huellas
+            lectores = ReaderCollection.GetReaders();
+
+            if (lectores.Count < 1)
+            {
+                Console.Write("Correcto. No hay lectores conectados.");
                 return;
             }
 
-            CompareResult resultado = Comparison.Compare(huella, 0, huella2, 0);
+            lector = lectores[0];
 
-            Console.WriteLine("Resultado: " + resultado.Score);
-
-            //Console.ReadKey();
+            try
+            {
+                lector.Dispose();
+                Console.Write("Correcto. Lector apagado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                Console.Write("Error al apagar el lector: " + ex.Message);
+            }
         }
 
         static Fmd CrearHuella()
@@ -48,7 +108,7 @@
             //Verifica si hay lectores conectados
             if (lectores.Count < 1)
             {
-                Console.WriteLine("No hay lectores conectados.");
+                Console.Write("Error. No hay lectores conectados.");
                 return null;
             }
 
@@ -56,14 +116,14 @@
 
             //foreach (Reader l in lectores)
             //{
-            //    Console.WriteLine("Lector: " + l.Description.SerialNumber);
+            //    Console.Write("Lector: " + l.Description.SerialNumber);
             //}
 
             //Selecciona el primer lector
 
             lector = lectores[0];
 
-            //Console.WriteLine("Lector: " + lector.Description.SerialNumber);
+            //Console.Write("Lector: " + lector.Description.SerialNumber);
 
             //Iniciar Lector
             lector.Open(Constants.CapturePriority.DP_PRIORITY_EXCLUSIVE);
@@ -72,12 +132,12 @@
             {
                 if(lector.Capabilities.Resolutions.Length < 1)
                 {
-                    Console.WriteLine("El lector no tiene resoluciones disponibles.");
+                    Console.Write("Error. El lector no tiene resoluciones disponibles.");
                     return null;
                 }
             }catch (Exception ex)
             {
-                Console.WriteLine("Error al abrir el lector: " + ex.Message);
+                Console.Write("Error al abrir el lector: " + ex.Message);
                 return null;
             }
 
@@ -87,25 +147,25 @@
             {
                 for (int i = 0; i < 4; i++)
                 {
-                    //Console.WriteLine("Coloca el dedo en el lector para capturar la huella " + (i + 1) + ": ");
+                    //Console.Write("Coloca el dedo en el lector para capturar la huella " + (i + 1) + ": ");
                     resultadoDeCaptura = lector.Capture(Constants.Formats.Fid.ANSI, Constants.CaptureProcessing.DP_IMG_PROC_DEFAULT, 5000, lector.Capabilities.Resolutions[0]);
                     esExito = (resultadoDeCaptura.ResultCode == Constants.ResultCode.DP_SUCCESS) && esExito;
                     if (esExito)
                     {
                         capturasFid[i] = resultadoDeCaptura.Data;
                         capturasFmd[i] = FeatureExtraction.CreateFmdFromFid(resultadoDeCaptura.Data, Constants.Formats.Fmd.ANSI).Data;
-                        //Console.WriteLine("Captura " + (i + 1) + " exitosa: " + resultadoDeCaptura.Score);
+                        //Console.Write("Captura " + (i + 1) + " exitosa: " + resultadoDeCaptura.Score);
                     }
                     else
                     {
                         continue;
-                        //Console.WriteLine("Captura " + (i + 1) + " fallida: " + resultadoDeCaptura.ResultCode);
+                        //Console.Write("Captura " + (i + 1) + " fallida: " + resultadoDeCaptura.ResultCode);
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error durante la captura: " + ex.Message);
+                Console.Write("Error durante la captura: " + ex.Message);
                 return null;
             }
 
@@ -113,7 +173,7 @@
             if (!esExito)
             {
                 lector.Dispose();
-                Console.WriteLine("No se pudo crear el FMD final por errores en la captura.");
+                Console.Write("Error. No se pudo crear el FMD final por errores en la captura.");
                 return null;
             }
 
@@ -123,16 +183,18 @@
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error durante la creación del FMD final: " + ex.Message);
+                Console.Write("Error durante la creación del FMD final: " + ex.Message);
                 return null;
             }
 
 
             string fmdJson = JsonSerializer.Serialize(fmdFinal);
 
-            //Console.WriteLine("Fmd Final: " + fmdJson);
+            //Console.Write("Fmd Final: " + fmdJson);
 
             lector.Dispose();
+
+            Console.Write(fmdJson);
 
             return fmdFinal;
         }
@@ -152,7 +214,7 @@
             //Verifica si hay lectores conectados
             if (lectores.Count < 1)
             {
-                Console.WriteLine("No hay lectores conectados.");
+                Console.Write("Error. No hay lectores conectados.");
                 return null;
             }
 
@@ -160,14 +222,14 @@
 
             //foreach (Reader l in lectores)
             //{
-            //    Console.WriteLine("Lector: " + l.Description.SerialNumber);
+            //    Console.Write("Lector: " + l.Description.SerialNumber);
             //}
 
             //Selecciona el primer lector
 
             lector = lectores[0];
 
-            //Console.WriteLine("Lector: " + lector.Description.SerialNumber);
+            //Console.Write("Lector: " + lector.Description.SerialNumber);
 
             //Iniciar Lector
             lector.Open(Constants.CapturePriority.DP_PRIORITY_EXCLUSIVE);
@@ -176,12 +238,12 @@
             {
                 if(lector.Capabilities.Resolutions.Length < 1)
                 {
-                    Console.WriteLine("El lector no tiene resoluciones disponibles.");
+                    Console.Write("Error. El lector no tiene resoluciones disponibles.");
                     return null;
                 }
             }catch (Exception ex)
             {
-                Console.WriteLine("Error al abrir el lector: " + ex.Message);
+                Console.Write("Error al abrir el lector: " + ex.Message);
                 return null;
             }
 
@@ -189,23 +251,23 @@
 
             try
             {
-                //Console.WriteLine("Coloca el dedo en el lector para capturar la huella");
+                //Console.Write("Coloca el dedo en el lector para capturar la huella");
                 resultadoDeCaptura = lector.Capture(Constants.Formats.Fid.ANSI, Constants.CaptureProcessing.DP_IMG_PROC_DEFAULT, 5000, lector.Capabilities.Resolutions[0]);
                 esExito = (resultadoDeCaptura.ResultCode == Constants.ResultCode.DP_SUCCESS);
                 if (esExito)
                 {
                     capturaFid = resultadoDeCaptura.Data;
                     fmdFinal = FeatureExtraction.CreateFmdFromFid(resultadoDeCaptura.Data, Constants.Formats.Fmd.ANSI).Data;
-                    //Console.WriteLine("Captura exitosa: " + resultadoDeCaptura.Score);
+                    //Console.Write("Captura exitosa: " + resultadoDeCaptura.Score);
                 }
                 else
                 {
-                    Console.WriteLine("Captura fallida: " + resultadoDeCaptura.ResultCode);
+                    Console.Write("Error. Captura fallida: " + resultadoDeCaptura.ResultCode);
                 }
                 
             }catch (Exception ex)
             {
-                Console.WriteLine("Error durante la captura: " + ex.Message);
+                Console.Write("Error durante la captura: " + ex.Message);
                 esExito = false;
             }
 
@@ -213,15 +275,17 @@
             if (!esExito)
             {
                 lector.Dispose();
-                //Console.WriteLine("No se pudo crear el FMD final por errores en la captura.");
+                //Console.Write("No se pudo crear el FMD final por errores en la captura.");
                 return null;
             }
 
             string fmdJson = JsonSerializer.Serialize(fmdFinal);
 
-            //Console.WriteLine(fmdJson);
+            //Console.Write(fmdJson);
 
             lector.Dispose();
+
+            Console.Write(fmdJson);
 
             return fmdFinal;
         }
