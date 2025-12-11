@@ -22,24 +22,24 @@
 
             if (args.Length > 0 && args[0] == "0")
             {
-                Console.Write("Apagando lector...");
+                //Console.Write("Apagando lector...");
                 ApagarLector();
                 return;
             }else if(args.Length > 0 && args[0] == "1")
             {
-                Console.Write("Creando Huella...");
+                //Console.Write("Creando Huella...");
 
                 CrearHuella();
             }else if(args.Length > 1 && args[0] == "2")
             {
-                Console.Write("Capturando Huella...");
+                //Console.Write("Capturando Huella...");
 
                 //Capturar Huella sencilla
                 CapturarHuella();
             }
             else if (args.Length > 2 && args[0] == "3")
             {
-                Console.Write("Comparando Huella...");
+                //Console.Write("Comparando Huella...");
 
                 //Comparar dos huellas
                 huella = JsonSerializer.Deserialize<Fmd>(args[1]);
@@ -79,6 +79,16 @@
             }
 
             lector = lectores[0];
+            
+            //Iniciar Lector
+            lector.Open(Constants.CapturePriority.DP_PRIORITY_EXCLUSIVE);
+
+            if (lector.Capabilities.Resolutions.Length < 1)
+            {
+                Console.Write("Error. El lector no tiene resoluciones disponibles.");
+                return;
+            }
+
 
             try
             {

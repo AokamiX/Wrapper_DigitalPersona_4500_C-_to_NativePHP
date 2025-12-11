@@ -16,3 +16,4 @@ C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\refint\ConsoleAp
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.pdb
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.genruntimeconfig.cache
 C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ref\ConsoleApp.dll
+C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.sourcelink.json
