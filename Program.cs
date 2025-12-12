@@ -30,7 +30,7 @@
                 //Console.Write("Creando Huella...");
 
                 CrearHuella();
-            }else if(args.Length > 1 && args[0] == "2")
+            }else if(args.Length > 0 && args[0] == "2")
             {
                 //Console.Write("Capturando Huella...");
 
@@ -39,11 +39,16 @@
             }
             else if (args.Length > 2 && args[0] == "3")
             {
-                //Console.Write("Comparando Huella...");
+
+
+                string textoHuella1 = args[1];
+                string textoHuella2 = args[2];
 
                 //Comparar dos huellas
-                huella = JsonSerializer.Deserialize<Fmd>(args[1]);
-                huella2 = JsonSerializer.Deserialize<Fmd>(args[2]);
+                huella = Fmd.DeserializeXml(textoHuella1);
+                huella2 = Fmd.DeserializeXml(textoHuella2);
+                
+                //return;
 
                 if (huella == null || huella2 == null)
                 {
@@ -56,8 +61,6 @@
                 Console.Write("Correcto. Resultado: " + resultado.Score);
 
             }
-
-            
 
             //Console.ReadKey();
         }
@@ -198,7 +201,7 @@
             }
 
 
-            string fmdJson = JsonSerializer.Serialize(fmdFinal);
+            string fmdJson = Fmd.SerializeXml(fmdFinal);
 
             //Console.Write("Fmd Final: " + fmdJson);
 
@@ -289,7 +292,7 @@
                 return null;
             }
 
-            string fmdJson = JsonSerializer.Serialize(fmdFinal);
+            string fmdJson = Fmd.SerializeXml(fmdFinal);
 
             //Console.Write(fmdJson);
 
