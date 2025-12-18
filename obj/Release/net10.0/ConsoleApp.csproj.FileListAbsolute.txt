@@ -1,19 +1,19 @@
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\ConsoleApp.exe
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\ConsoleApp.deps.json
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\ConsoleApp.runtimeconfig.json
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\ConsoleApp.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\ConsoleApp.pdb
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\DPCtlUruNet.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\bin\Release\net10.0\DPUruNet.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.csproj.AssemblyReference.cache
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.AssemblyInfoInputs.cache
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.AssemblyInfo.cs
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.csproj.CoreCompileInputs.cache
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.csproj.Up2Date
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\refint\ConsoleApp.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.pdb
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.genruntimeconfig.cache
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ref\ConsoleApp.dll
-C:\Users\Will\Desktop\C#\Consola\ConsoleApp\obj\Release\net10.0\ConsoleApp.sourcelink.json
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\ConsoleApp.exe
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\ConsoleApp.deps.json
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\ConsoleApp.runtimeconfig.json
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\ConsoleApp.dll
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\ConsoleApp.pdb
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\DPCtlUruNet.dll
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\bin\Release\net10.0\DPUruNet.dll
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.AssemblyInfo.cs
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.sourcelink.json
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.csproj.Up2Date
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.dll
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\refint\ConsoleApp.dll
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.pdb
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ConsoleApp.genruntimeconfig.cache
+C:\Users\aleja\Desktop\Nueva carpeta\Wrapper_DigitalPersona_4500_C-_to_NativePHP\obj\Release\net10.0\ref\ConsoleApp.dll

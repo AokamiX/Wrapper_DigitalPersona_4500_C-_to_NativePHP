@@ -21,6 +21,7 @@
             Fmd huella2 = null;
 
             if (args.Length > 0 && args[0] == "0")
+            //if (true)
             {
                 //Console.Write("Apagando lector...");
                 ApagarLector();
@@ -63,6 +64,7 @@
             }
 
             //Console.ReadKey();
+            return;
         }
 
         //Apagar lector
@@ -102,6 +104,8 @@
             {
                 Console.Write("Error al apagar el lector: " + ex.Message);
             }
+
+            lectores.Dispose();
         }
 
         static Fmd CrearHuella()
@@ -207,6 +211,8 @@
 
             lector.Dispose();
 
+            lectores.Dispose();
+
             Console.Write(fmdJson);
 
             return fmdFinal;
@@ -288,6 +294,7 @@
             if (!esExito)
             {
                 lector.Dispose();
+                lectores.Dispose();
                 //Console.Write("No se pudo crear el FMD final por errores en la captura.");
                 return null;
             }
@@ -297,6 +304,7 @@
             //Console.Write(fmdJson);
 
             lector.Dispose();
+            lectores.Dispose();
 
             Console.Write(fmdJson);
 
