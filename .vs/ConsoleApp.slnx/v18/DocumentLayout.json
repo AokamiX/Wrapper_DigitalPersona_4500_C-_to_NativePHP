@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\aleja\\Desktop\\Nueva carpeta\\Wrapper_DigitalPersona_4500_C-_to_NativePHP\\",
+  "WorkspaceRootPath": "C:\\Users\\Will\\Desktop\\C#\\Consola\\ConsoleApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|c:\\users\\aleja\\desktop\\nueva carpeta\\wrapper_digitalpersona_4500_c-_to_nativephp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|c:\\users\\will\\desktop\\c#\\consola\\consoleapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|c:\\users\\aleja\\desktop\\nueva carpeta\\wrapper_digitalpersona_4500_c-_to_nativephp\\programbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|c:\\users\\will\\desktop\\c#\\consola\\consoleapp\\programbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B003331C-F489-1E10-2D31-99153740F43C}|ConsoleApp.csproj|solutionrelative:programbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -32,23 +32,24 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "ProgramBase.cs",
-              "DocumentMoniker": "C:\\Users\\aleja\\Desktop\\Nueva carpeta\\Wrapper_DigitalPersona_4500_C-_to_NativePHP\\ProgramBase.cs",
+              "DocumentMoniker": "C:\\Users\\Will\\Desktop\\C#\\Consola\\ConsoleApp\\ProgramBase.cs",
               "RelativeDocumentMoniker": "ProgramBase.cs",
-              "ToolTip": "C:\\Users\\aleja\\Desktop\\Nueva carpeta\\Wrapper_DigitalPersona_4500_C-_to_NativePHP\\ProgramBase.cs",
+              "ToolTip": "C:\\Users\\Will\\Desktop\\C#\\Consola\\ConsoleApp\\ProgramBase.cs",
               "RelativeToolTip": "ProgramBase.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-16T20:54:59.911Z"
+              "WhenOpened": "2025-12-16T20:54:59.911Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\aleja\\Desktop\\Nueva carpeta\\Wrapper_DigitalPersona_4500_C-_to_NativePHP\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\Will\\Desktop\\C#\\Consola\\ConsoleApp\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\aleja\\Desktop\\Nueva carpeta\\Wrapper_DigitalPersona_4500_C-_to_NativePHP\\Program.cs",
+              "ToolTip": "C:\\Users\\Will\\Desktop\\C#\\Consola\\ConsoleApp\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAmwAsBAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-07T00:25:59.631Z",
               "EditorCaption": ""

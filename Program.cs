@@ -26,12 +26,14 @@
                 //Console.Write("Apagando lector...");
                 ApagarLector();
                 return;
-            }else if(args.Length > 0 && args[0] == "1")
+            }
+            else if (args.Length > 0 && args[0] == "1")
             {
                 //Console.Write("Creando Huella...");
 
                 CrearHuella();
-            }else if(args.Length > 0 && args[0] == "2")
+            }
+            else if (args.Length > 0 && args[0] == "2")
             {
                 //Console.Write("Capturando Huella...");
 
@@ -48,7 +50,7 @@
                 //Comparar dos huellas
                 huella = Fmd.DeserializeXml(textoHuella1);
                 huella2 = Fmd.DeserializeXml(textoHuella2);
-                
+
                 //return;
 
                 if (huella == null || huella2 == null)
@@ -61,6 +63,59 @@
 
                 Console.Write("Correcto. Resultado: " + resultado.Score);
 
+            }
+            else if (args.Length > 2 && args[0] == "4")
+            {
+                string textoHuellaCapturada = args[1];
+                string rutaArchivoJson = args[2];
+
+                try
+                {
+                    // 1. Deserializar la huella del dedo puesto en el lector
+                    var fmdCapturada = Fmd.DeserializeXml(textoHuellaCapturada);
+
+                    // 2. Leer archivo y deserializar lista
+                    if (!File.Exists(rutaArchivoJson))
+                    {
+                        Console.Write("Error: El archivo no existe en la ruta proporcionada.");
+                        return;
+                    }
+
+                    string jsonContenido = File.ReadAllText(rutaArchivoJson);
+
+                    // Configuración para que ignore mayúsculas/minúsculas en el JSON
+                    var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+                    var listaClientes = JsonSerializer.Deserialize<List<ClienteData>>(jsonContenido, opciones);
+
+                    string cedulaEncontrada = "NOT_FOUND";
+
+                    if (listaClientes != null)
+                    {
+                        // 3. Comparación masiva en memoria
+                        foreach (var cliente in listaClientes)
+                        {
+                            try
+                            {
+                                var fmdBase = Fmd.DeserializeXml(cliente.HuellaXml);
+                                CompareResult resultado = Comparison.Compare(fmdCapturada, 0, fmdBase, 0);
+
+                                // Umbral estándar 2147
+                                if (resultado.Score < 2147)
+                                {
+                                    cedulaEncontrada = cliente.Cedula;
+                                    break;
+                                }
+                            }
+                            catch { continue; }
+                        }
+                    }
+
+                    Console.Write(cedulaEncontrada);
+                }
+                catch (Exception ex)
+                {
+                    Console.Write("Error: " + ex.Message);
+                }
             }
 
             //Console.ReadKey();
@@ -84,7 +139,7 @@
             }
 
             lector = lectores[0];
-            
+
             //Iniciar Lector
             lector.Open(Constants.CapturePriority.DP_PRIORITY_EXCLUSIVE);
 
@@ -147,12 +202,13 @@
 
             try
             {
-                if(lector.Capabilities.Resolutions.Length < 1)
+                if (lector.Capabilities.Resolutions.Length < 1)
                 {
                     Console.Write("Error. El lector no tiene resoluciones disponibles.");
                     return null;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.Write("Error al abrir el lector: " + ex.Message);
                 return null;
@@ -255,12 +311,13 @@
 
             try
             {
-                if(lector.Capabilities.Resolutions.Length < 1)
+                if (lector.Capabilities.Resolutions.Length < 1)
                 {
                     Console.Write("Error. El lector no tiene resoluciones disponibles.");
                     return null;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.Write("Error al abrir el lector: " + ex.Message);
                 return null;
@@ -283,8 +340,9 @@
                 {
                     Console.Write("Error. Captura fallida: " + resultadoDeCaptura.ResultCode);
                 }
-                
-            }catch (Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 Console.Write("Error durante la captura: " + ex.Message);
                 esExito = false;
@@ -310,5 +368,12 @@
 
             return fmdFinal;
         }
+    }
+
+    // Clase de apoyo para System.Text.Json
+    public class ClienteData
+    {
+        public required string Cedula { get; set; }
+        public required string HuellaXml { get; set; }
     }
 }
